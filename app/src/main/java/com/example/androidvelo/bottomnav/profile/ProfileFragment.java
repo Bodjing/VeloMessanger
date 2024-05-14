@@ -19,13 +19,10 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.example.androidvelo.LoginActivity;
-import com.example.androidvelo.R;
 import com.example.androidvelo.SettingActivity;
-import com.example.androidvelo.bottomnav.setting.SettingFragment;
 import com.example.androidvelo.databinding.FragmentProfileBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

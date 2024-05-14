@@ -1,5 +1,7 @@
 package com.example.androidvelo;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +20,6 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         // Находим кнопку back_profile_btn
         binding.backProfileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 // Создаем Intent для перехода на MainActivity
                 Intent intent = new Intent(SettingActivity.this, MainActivity.class);
