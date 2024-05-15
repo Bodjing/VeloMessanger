@@ -30,7 +30,7 @@
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/event_image_view"
+            android:id="@+id/event_image_url"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:backgroundTint="@android:color/transparent"
@@ -39,6 +39,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_create_header" />
+
+        <EditText
+            android:id="@+id/event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_bg"
+            android:hint="Enter your name..."
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_image_url" />
 
         <EditText
             android:id="@+id/event_description"
@@ -51,7 +62,7 @@
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/event_image_view" />
+            app:layout_constraintTop_toBottomOf="@+id/event_name" />
 
         <EditText
             android:id="@+id/event_distance"
@@ -80,8 +91,10 @@
             app:layout_constraintTop_toBottomOf="@+id/event_distance" />
 
         <Button
+            android:id="@+id/create_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Создать мероприятие"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

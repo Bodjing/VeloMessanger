@@ -30,7 +30,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/users_rv"
+            android:id="@+id/event_rv"
             android:layout_width="match_parent"
             android:layout_height="613dp"
             app:layout_constraintTop_toBottomOf="@+id/create_event_button"
