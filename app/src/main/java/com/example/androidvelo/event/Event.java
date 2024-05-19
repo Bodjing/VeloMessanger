@@ -13,9 +13,8 @@ public class Event {
         // Необходимый конструктор по умолчанию для вызовов DataSnapshot.getValue(Event.class)
     }
 
-    public Event(String nameEvent, String eventId, String description, String distance, String address, String imageUrl) {
+    public Event(String nameEvent, String description, String distance, String address, String imageUrl) {
         this.nameEvent = nameEvent;
-        this.eventId = eventId;
         this.description = description;
         this.distance = distance;
         this.address = address;

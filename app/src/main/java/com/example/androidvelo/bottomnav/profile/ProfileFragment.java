@@ -9,7 +9,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -40,7 +40,7 @@ import java.io.IOException;
 public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;
     private Uri filePath;
-    private EditText profileDescriptionEditText;
+    private TextView profileDescriptionEditText;
 
     @Nullable
     @Override
@@ -50,15 +50,15 @@ public class ProfileFragment extends Fragment {
         loadUserInfo();
 
         // Находим EditText для описания профиля по его id
-        profileDescriptionEditText = binding.profileDescription;
+        profileDescriptionEditText = binding.profileDescriptionTv;
 
         // Обработчик нажатия на изображение профиля для выбора изображения
-        binding.profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectImage();
-            }
-        });
+        // binding.profileImageView.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        selectImage();
+        //    }
+        // });
 
         // Обработчик нажатия на кнопку выхода из учетной записи
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,12 +70,12 @@ public class ProfileFragment extends Fragment {
         });
 
         // Обработчик нажатия на кнопку сохранения описания профиля
-        binding.saveProfileDescription.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveProfileDescription(profileDescriptionEditText.getText().toString());
-            }
-        });
+        // binding.saveProfileDescription.setOnClickListener(new View.OnClickListener() {
+        //   @Override
+        //   public void onClick(View v) {
+        //       saveProfileDescription(profileDescriptionEditText.getText().toString());
+        //  }
+    // });
 
         // Обработчик нажатия на кнопку настроек профиля
         binding.settingBtn.setOnClickListener(new View.OnClickListener() {

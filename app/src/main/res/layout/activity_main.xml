@@ -6,7 +6,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -19,7 +20,8 @@
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:background="@color/light_blue"
+            android:background="@color/blue_an"
+            app:itemIconTint="@android:color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -21,4 +21,9 @@
         android:textSize="14sp"
         android:textColor="@android:color/darker_gray"/>
 
+    <View
+        android:layout_width="391dp"
+        android:layout_height="1dp"
+        android:background="#8C8C8C" />
+
 </LinearLayout>

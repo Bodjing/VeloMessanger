@@ -13,7 +13,7 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:orientation="horizontal"
-            android:background="@color/light_blue"
+            android:background="@color/blue_an"
             android:padding="16dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,15 +29,27 @@
                 android:fontFamily="@font/ubuntu_medium"/>
         </LinearLayout>
 
-        <TextView
+        <Button
+            android:id="@+id/news_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="home"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/blue"
+            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:text="+"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- RecyclerView для отображения списка постов -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_posts"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/news_header"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/news_header"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/news_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

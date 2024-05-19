@@ -92,7 +92,7 @@ public class ChatsFragment extends Fragment {
                     e.printStackTrace();
                     // В случае ошибки при загрузке чатов показываем сообщение об ошибке
                     if (getContext() != null)
-                        Toast.makeText(getContext(), "Произошла ошибка при загрузке чатов", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Нет существующих чатов", Toast.LENGTH_SHORT).show();
                 }
             }
 

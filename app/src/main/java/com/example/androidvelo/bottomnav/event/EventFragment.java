@@ -5,14 +5,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.androidvelo.EventActivity;
-import com.example.androidvelo.databinding.FragmentEventBinding;
+import com.example.androidvelo.EventFullActivity;
+import com.example.androidvelo.R;
 import com.example.androidvelo.event.Event;
 import com.example.androidvelo.event.EventAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventFragment extends Fragment {
-    FragmentEventBinding binding;
     private DatabaseReference databaseEvents;
     private List<Event> eventList;
     private EventAdapter eventAdapter;
@@ -33,7 +35,7 @@ public class EventFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentEventBinding.inflate(inflater, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_event, container, false);
 
         // Инициализация Firebase Database
         databaseEvents = FirebaseDatabase.getInstance().getReference("events");
@@ -42,15 +44,27 @@ public class EventFragment extends Fragment {
         eventList = new ArrayList<>();
         eventAdapter = new EventAdapter(getContext(), eventList);
 
-        // Настройка RecyclerView
-        binding.eventRv.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.eventRv.setAdapter(eventAdapter);
+        // Настройка ListView
+        ListView eventListView = rootView.findViewById(R.id.event_list_view);
+        eventListView.setAdapter((ListAdapter) eventAdapter);
 
         // Загрузка данных из Firebase
         loadEvents();
 
-        // Устанавливаем обработчик нажатия на кнопку create_event_button
-        binding.createEventButton.setOnClickListener(new View.OnClickListener() {
+        // В обработчике нажатия на элемент списка
+        eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Открываем новую Activity с подробной информацией о мероприятии
+                Intent intent = new Intent(getActivity(), EventFullActivity.class);
+                intent.putExtra("eventId", eventList.get(position).getEventId());
+                startActivity(intent);
+            }
+        });
+
+
+        // Устанавливаем обработчик нажатия на кнопку создания мероприятия
+        rootView.findViewById(R.id.create_event_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Создаем Intent для запуска EventActivity
@@ -59,7 +73,7 @@ public class EventFragment extends Fragment {
             }
         });
 
-        return binding.getRoot();
+        return rootView;
     }
 
     private void loadEvents() {

@@ -1,25 +1,35 @@
 package com.example.androidvelo;
 
-import static android.app.PendingIntent.getActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.androidvelo.databinding.ActivitySettingBinding;
-
 public class SettingActivity extends AppCompatActivity {
 
-    private ActivitySettingBinding binding;
+    private TextView settingUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySettingBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_setting);
+
+        settingUser = findViewById(R.id.setting_user);
+
+        settingUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Здесь вы можете запустить новую активность или фрагмент для отображения настроек пользователя
+                Intent intent = new Intent(SettingActivity.this, UserSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // Находим кнопку back_profile_btn
-        binding.backProfileBtn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.back_profile_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 // Создаем Intent для перехода на MainActivity
                 Intent intent = new Intent(SettingActivity.this, MainActivity.class);

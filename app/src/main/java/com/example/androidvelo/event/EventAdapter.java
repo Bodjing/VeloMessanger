@@ -4,55 +4,39 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.androidvelo.R;
+import com.example.androidvelo.event.Event;
 
 import java.util.List;
 
-public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
+public class EventAdapter extends ArrayAdapter<Event> {
 
     private Context mContext;
     private List<Event> mEventList;
 
     public EventAdapter(Context context, List<Event> eventList) {
+        super(context, 0, eventList);
         mContext = context;
         mEventList = eventList;
     }
 
-    @NonNull
     @Override
-    public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_event, parent, false);
-        return new EventViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
-        Event event = mEventList.get(position);
-
-        holder.nameTextView.setText(event.getNameEvent());
-        holder.distanceTextView.setText(event.getDistance() + " km");
-    }
-
-    @Override
-    public int getItemCount() {
-        return mEventList.size();
-    }
-
-    public class EventViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView nameTextView;
-        public TextView distanceTextView;
-
-        public EventViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            nameTextView = itemView.findViewById(R.id.name_text_view);
-            distanceTextView = itemView.findViewById(R.id.distance_text_view);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(mContext).inflate(R.layout.item_event, parent, false);
         }
+
+        Event currentEvent = mEventList.get(position);
+
+        TextView nameTextView = listItemView.findViewById(R.id.name_text_view);
+        nameTextView.setText(currentEvent.getNameEvent());
+
+        TextView distanceTextView = listItemView.findViewById(R.id.distance_text_view);
+        distanceTextView.setText(currentEvent.getDistance() + " km");
+
+        return listItemView;
     }
 }

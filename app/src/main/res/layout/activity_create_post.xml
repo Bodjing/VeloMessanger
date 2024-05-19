@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/create_news_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/blue_an"
+        android:padding="16dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Создание поста"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/ubuntu_medium"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_text_post_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/create_news_header"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border_bg"
+        android:hint="Введите текст вашего поста"
+        android:maxLines="5"
+        android:scrollbars="vertical"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_view_preview"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_below="@id/edit_text_post_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/baseline_assignment_event"
+        android:background="@drawable/border_bg"/>
+
+    <TextView
+        android:id="@+id/text_view_select_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_view_preview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="Выбрать изображение"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/button_publish_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_select_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="Опубликовать" />
+
+</RelativeLayout>

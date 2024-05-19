@@ -5,7 +5,9 @@
     <color name="blue">#2A63F6</color>
     <color name="Twhite">#D5D5D5</color>
 
-
+    <color name="purple">#A12795</color>
+    <color name="blue_an">#5F81DB</color>
     <color name="light_blue">#C0CCEC</color>
-    <color name="grey">#f3f3f3</color>
+    <color name="grey">#A5A5A5</color>
+    <color name="lIGHT_grey">#C6C6C6</color>
 </resources>
