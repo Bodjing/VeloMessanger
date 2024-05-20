@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:background="@color/blue_an"
+        android:background="@color/white"
         android:padding="16dp"
         android:layout_alignParentTop="true">
 
@@ -22,7 +22,16 @@
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:fontFamily="@font/ubuntu_medium"/>
+
+
     </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CDCDCD"
+        android:layout_below="@id/create_news_header" />
 
     <EditText
         android:id="@+id/edit_text_post_content"

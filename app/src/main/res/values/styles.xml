@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- New style for BottomNavigationView -->
+    <style name="BottomNavigationViewStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="itemTextColor">@color/bottom_nav_text_color</item>
+        <item name="itemIconTint">@color/bottom_nav_icon_color</item>
+        <item name="itemBackground">@color/white</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:state_selected" tools:ignore="NewApi">false</item>
+        <item name="android:state_pressed" tools:ignore="NewApi">false</item>
+        <item name="android:state_focused" tools:ignore="NewApi">false</item>
+    </style>
+</resources>
